@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import TabelaIMC from './components/TabelaIMC'
+import Peso from './components/Peso'
+import Altura from './components/Altura'
+import CalcularIMC from './components/CalcularIMC'
+import Resultado from './components/ResultadoIMC'
+import CSS from './App.css'
+
+
 
 function App() {
+
+  const [peso,setPeso]=useState(0)
+  const [altura,setAltura]=useState(0)
+  const [resultado,setResultado]=useState(0)
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className= "Pagina">
+    {/* //usa os props do componente, recebe dois parametros */}
+    <Peso p={peso} sp={setPeso}/>
+    <Altura a={altura} sa={setAltura}/>
+    <CalcularIMC p={peso} a={altura} sr={setResultado}/>
+    <Resultado r={resultado}/>
+    <TabelaIMC/>
     </div>
+    
+    
+    </>
   );
 }
 
